@@ -1,2 +1,14 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+  // TODO: what should be the type of data?
+  export let data;
+
+  $: ({ GetAllFilms } = data);
+</script>
+
+<h1>Star wars films</h1>
+
+{#each $GetAllFilms.data.allFilms.films as { title }, i}
+  <li>
+    {title}
+  </li>
+{/each}
